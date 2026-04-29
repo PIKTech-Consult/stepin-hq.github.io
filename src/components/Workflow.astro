@@ -11,13 +11,13 @@ const audiences = t.workflow.audiences.map((a, i) => ({ ...a, id: ids[i] }));
 <section class="py-20 lg:py-28 xl:py-36 2xl:py-44">
   <div class="site-container">
     <!-- Header -->
-    <div class="mb-10">
-      <div class="section-badge w-fit mb-2">
+    <div class="mb-10 text-center md:text-left">
+      <div class="section-badge w-fit mb-2 mx-auto md:mx-0">
         <span class="w-3 h-3 rounded-full bg-[#A2BCFF] shrink-0"></span>
         <span>{t.workflow.badge}</span>
       </div>
       <h2 class="font-onest font-bold text-[#EEF3FF] text-3xl lg:text-[36px] xl:text-[44px] 2xl:text-[52px] mb-3">{t.workflow.title}</h2>
-      <p class="font-onest text-[#CDD4E4] text-sm max-w-md">{t.workflow.subtitle}</p>
+      <p class="font-onest text-[#CDD4E4] text-sm max-w-md mx-auto md:mx-0">{t.workflow.subtitle}</p>
     </div>
 
     <!-- Desktop grid -->
@@ -52,7 +52,7 @@ const audiences = t.workflow.audiences.map((a, i) => ({ ...a, id: ids[i] }));
               loading="lazy"
             />
           </div>
-          <div class="flex flex-col gap-2 items-center text-center">
+          <div class="flex flex-col gap-2">
             <h3 class="font-onest font-bold text-[#A2BCFF] text-[22px]">{audience.heading}</h3>
             <p class="font-onest text-[#CDD4E4] text-base leading-relaxed">{audience.body}</p>
           </div>

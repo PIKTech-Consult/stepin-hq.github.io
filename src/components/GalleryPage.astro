@@ -7,6 +7,7 @@ import { useTranslations } from '../i18n';
 const locale = Astro.currentLocale ?? 'en';
 const t = useTranslations(locale);
 const modalId = locale === 'bg' ? 'gallery-contact-modal-bg' : 'gallery-contact-modal';
+const displayFont = locale === 'bg' ? "'Cormorant Garamond', serif" : "'Antic Didone', serif";
 
 const brandCount = t.gallery.brands.items.length;
 const brandsGrid = brandCount <= 1 ? 'grid-cols-1' : 'grid-cols-1 lg:grid-cols-2';
@@ -15,7 +16,7 @@ const brandsGrid = brandCount <= 1 ? 'grid-cols-1' : 'grid-cols-1 lg:grid-cols-2
 <GalleryHeader />
 
 <!-- ── Hero ──────────────────────────────────────────────────────────────── -->
-<section id="gallery-hero" class="relative overflow-hidden" style="min-height: 90vh; margin-top: 4rem;">
+<section id="gallery-hero" class="relative overflow-hidden flex items-center" style="min-height: 75vh; margin-top: 4rem;">
 
   <script is:inline>
     if (sessionStorage.getItem('stepin-intro-played')) {
@@ -24,19 +25,19 @@ const brandsGrid = brandCount <= 1 ? 'grid-cols-1' : 'grid-cols-1 lg:grid-cols-2
     }
   </script>
 
-  <div class="site-container relative py-20 lg:py-28 gallery-hero-content" style="z-index:3;">
+  <div class="site-container relative py-16 gallery-hero-content w-full" style="z-index:3;">
     <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
 
       <!-- Left: text -->
-      <div>
-        <h1 class="gl-heading font-normal leading-[1.05] mb-6 text-[42px] lg:text-[58px] xl:text-[72px] 2xl:text-[86px]"
-            style="font-family: 'Antic Didone', serif;">
+      <div class="text-center lg:text-left">
+        <h1 class="gl-heading font-normal leading-[1.05] mb-6 text-[44px] lg:text-[58px] xl:text-[72px] 2xl:text-[86px]"
+            style={`font-family: ${displayFont};`}>
           {t.gallery.hero.title}
         </h1>
-        <p class="gl-body font-onest font-normal text-lg xl:text-xl mb-8 max-w-[480px] xl:max-w-[580px]">
+        <p class="gl-body font-onest font-normal text-lg xl:text-xl mb-8 max-w-[480px] xl:max-w-[580px] mx-auto lg:mx-0">
           {t.gallery.hero.body}
         </p>
-        <div class="flex flex-wrap gap-4">
+        <div class="flex flex-wrap gap-4 justify-center lg:justify-start">
           <button
             data-open-modal={modalId}
             class="font-onest font-medium text-sm px-[22px] h-11 rounded-full bg-[#FFD366] text-[#141414] flex items-center justify-center cursor-pointer"
@@ -73,7 +74,7 @@ const brandsGrid = brandCount <= 1 ? 'grid-cols-1' : 'grid-cols-1 lg:grid-cols-2
   <!-- Watermark -->
   <div class="absolute bottom-0 left-0 right-0 overflow-hidden pointer-events-none" style="z-index:3;">
     <p class="gallery-watermark font-normal leading-none select-none"
-       style="font-family: 'Antic Didone', serif; font-size: clamp(56px, 13vw, 180px); letter-spacing: 0.12em; color: rgba(71,67,57,0.08); padding: 0;">
+       style={`font-family: ${displayFont}; font-size: clamp(180px, 13vw, 220px); letter-spacing: 0.12em; color: rgba(71,67,57,0.08); padding: 0;`}>
       {t.gallery.hero.watermark}
     </p>
   </div>
@@ -82,8 +83,8 @@ const brandsGrid = brandCount <= 1 ? 'grid-cols-1' : 'grid-cols-1 lg:grid-cols-2
 <!-- ── Services ──────────────────────────────────────────────────────────── -->
 <section id="services" class="bg-[#eae4d6] py-20 xl:py-28 2xl:py-36">
   <div class="site-container">
-    <h2 class="mb-12 font-normal text-[#474339] text-[36px] xl:text-[48px] 2xl:text-[58px] leading-[1.1]"
-        style="font-family: 'Antic Didone', serif;">
+    <h2 class="mb-12 font-normal text-[#474339] text-[36px] xl:text-[48px] 2xl:text-[58px] leading-[1.1] text-center lg:text-left"
+        style={`font-family: ${displayFont};`}>
       {t.gallery.services.title}
     </h2>
     <div class="grid lg:grid-cols-3 gap-6 xl:gap-8">
@@ -105,23 +106,23 @@ const brandsGrid = brandCount <= 1 ? 'grid-cols-1' : 'grid-cols-1 lg:grid-cols-2
 <!-- ── Brands ─────────────────────────────────────────────────────────────── -->
 <section class="bg-[#faf9ee] border-t border-[#d8d1ca] py-20 xl:py-28 2xl:py-36">
   <div class="site-container">
-    <div class="mb-12">
+    <div class="mb-12 text-center lg:text-left">
       <h2 class="font-normal text-[#474339] text-[36px] xl:text-[48px] 2xl:text-[58px] leading-[1.1] mb-3"
-          style="font-family: 'Antic Didone', serif;">
+          style={`font-family: ${displayFont};`}>
         {t.gallery.brands.title}
       </h2>
-      <p class="font-onest text-[#817065] text-[14px] max-w-[480px]">
+      <p class="font-onest text-[#817065] text-[14px] max-w-[480px] mx-auto lg:mx-0">
         {t.gallery.brands.subtitle}
       </p>
     </div>
     <div class={`grid gap-6 ${brandsGrid}`}>
       {t.gallery.brands.items.map((b) => (
-        <div class="border border-[#d8d1ca] overflow-hidden flex flex-col sm:flex-row">
-          <div class="bg-[#fafafa] border-b border-[#d8d1ca] sm:border-b-0 sm:border-r flex items-center justify-center p-8 sm:w-[220px] sm:shrink-0 min-h-[180px] sm:min-h-0">
-            {b.logo && <img src={b.logo} alt={b.name} class="max-h-16 max-w-[160px] object-contain mix-blend-darken" />}
+        <div class="flex flex-col sm:flex-row sm:items-center">
+          <div class="bg-white border border-[#d8d1ca] flex items-center justify-center p-6 min-h-[154px] sm:w-[280px] sm:h-[154px] shrink-0">
+            {b.logo && <img src={b.logo} alt={b.name} class="max-h-[100px] max-w-[200px] object-contain" />}
           </div>
-          <div class="bg-white p-8 flex flex-col justify-center">
-            <h3 class="font-onest font-bold text-[#2e251f] text-[18px] leading-7 mb-3">{b.name}</h3>
+          <div class="flex flex-col gap-4 p-8 text-center sm:text-left">
+            <h3 class="font-onest font-bold text-[#2e251f] text-[20px] leading-7">{b.name}</h3>
             <p class="font-onest text-[#817065] text-[14px] leading-[1.625]">{b.desc}</p>
           </div>
         </div>
@@ -134,16 +135,16 @@ const brandsGrid = brandCount <= 1 ? 'grid-cols-1' : 'grid-cols-1 lg:grid-cols-2
 <section id="contact" class="bg-[#eae4d6] border-t border-[#d8d1ca] py-20">
   <div class="site-container">
     <div class="bg-[#faf9ee] p-12 lg:p-16">
-      <h2 class="font-normal text-[#2e251f] text-[40px] lg:text-[44px] leading-[1.1] tracking-[-0.03em] mb-6 max-w-[680px]"
-          style="font-family: 'Antic Didone', serif;">
+      <h2 class="font-normal text-[#2e251f] text-[40px] lg:text-[44px] leading-[1.1] tracking-[-0.03em] mb-6 max-w-[680px] text-center lg:text-left mx-auto lg:mx-0"
+          style={`font-family: ${displayFont};`}>
         {t.gallery.reserve_cta.title}
       </h2>
-      <p class="font-onest font-light text-[#817065] text-[18px] lg:text-[20px] leading-[1.625] mb-8 max-w-[520px]">
+      <p class="font-onest font-light text-[#817065] text-[18px] lg:text-[20px] leading-[1.625] mb-8 max-w-[520px] text-center lg:text-left mx-auto lg:mx-0">
         {t.gallery.reserve_cta.body}
       </p>
       <button
         data-open-modal={modalId}
-        class="inline-flex items-center justify-center font-onest font-medium text-sm px-[22px] h-11 rounded-full bg-[#FFD366] text-[#141414] cursor-pointer"
+        class="flex items-center justify-center font-onest font-medium text-sm px-[22px] h-11 rounded-full bg-[#FFD366] text-[#141414] cursor-pointer w-full sm:w-fit lg:mx-0"
       >
         {t.gallery.reserve_cta.cta}
       </button>
