@@ -2,8 +2,8 @@ backend:
   name: github
   repo: stepin-hq/stepin-hq.github.io
   branch: main
-  auth_type: pkce
-  app_id: Ov23li15njd63kzqJnXz
+  base_url: https://decap-proxy.stepin-decap-cms.workers.dev
+  auth_endpoint: /auth
 
 locale: en
 media_folder: public/images
