@@ -57,7 +57,7 @@ html.intro-playing #gallery-header {
   }
 
   .section-badge {
-    @apply inline-flex items-center gap-1 bg-[#242935] rounded-[12px] p-[6px] text-[12px] tracking-[0.48px] text-[#cdd4e4];
+    @apply flex w-fit items-center gap-1 bg-[#333438] rounded-[12px] p-[6px] text-[12px] tracking-[0.48px] text-[#cdd4e4];
   }
 
   .btn-primary {
