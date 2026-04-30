@@ -6,7 +6,9 @@
     "title_end": "for Real Estate & Design",
     "subtitle": "A B2B platform that transforms 3D models into shareable VR experiences — accelerate your pipeline, impress stakeholders, and close deals with confidence.",
     "cta_demo": "Request a Demo",
-    "cta_video": "Watch the Experience"
+    "cta_video": "Watch the Experience",
+    "video_enabled": false,
+    "video_url": ""
   },
   "features": {
     "badge": "FEATURES",

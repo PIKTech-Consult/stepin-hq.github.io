@@ -1,7 +1,13 @@
 ---
+import VideoModal from './VideoModal.astro';
 import { useTranslations } from '../i18n';
 const locale = Astro.currentLocale ?? 'en';
 const t = useTranslations(locale);
+
+const rawVideoUrl = t.hero.video_url ?? '';
+const videoIdMatch = rawVideoUrl.match(/(?:v=|youtu\.be\/)([^&\n?#]+)/);
+const videoId = videoIdMatch ? videoIdMatch[1] : rawVideoUrl;
+const showVideo = t.hero.video_enabled && videoId;
 ---
 
 <section class="relative overflow-hidden min-h-screen flex items-center">
@@ -48,9 +54,14 @@ const t = useTranslations(locale);
     <!-- CTAs -->
     <div class="flex flex-wrap gap-3 justify-center md:justify-start">
       <button data-open-modal="main-contact-modal" class="btn-primary flex-1 sm:flex-none text-center cursor-pointer border-0">{t.hero.cta_demo}</button>
+      {showVideo && (
+        <button data-open-video="hero-video-modal" class="btn-secondary flex-1 sm:flex-none text-center cursor-pointer border-0">{t.hero.cta_video}</button>
+      )}
     </div>
   </div>
 </section>
+
+{showVideo && <VideoModal id="hero-video-modal" videoId={videoId} />}
 
 <style>
   /* ── Hero content ────────────────────────────────────────────────────────── */

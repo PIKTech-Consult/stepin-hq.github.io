@@ -23,7 +23,9 @@ export const prerender = true;
             { label: 'Title — end', name: 'title_end', widget: 'string' },
             { label: 'Subtitle', name: 'subtitle', widget: 'text' },
             { label: 'CTA — Request Demo button', name: 'cta_demo', widget: 'string' },
-            { label: 'CTA — Watch Video button', name: 'cta_video', widget: 'string' },
+            { label: 'CTA — Watch Video button label', name: 'cta_video', widget: 'string' },
+            { label: 'Show video button', name: 'video_enabled', widget: 'boolean', default: false, required: false },
+            { label: 'YouTube video URL', name: 'video_url', widget: 'string', required: false, hint: 'Paste the full YouTube URL, e.g. https://www.youtube.com/watch?v=abc123' },
           ]
         },
         {
