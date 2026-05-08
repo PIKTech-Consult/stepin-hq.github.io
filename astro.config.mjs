@@ -2,7 +2,8 @@ import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
 
 export default defineConfig({
-  site: 'https://stepin-hq.github.io',
+  site: 'https://kkalugerov.github.io',
+  base: '/stepin-hq.github.io',
   integrations: [tailwind()],
   i18n: {
     defaultLocale: 'en',
