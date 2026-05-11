@@ -162,13 +162,13 @@ import Footer from '../components/Footer.astro';
 
     // Headset pulse begins at 1400ms — grid fades simultaneously
     const HEADSET_START_DELAY = 1400;
-    const GRID_FADE_DURATION  = 1800;
+    const GRID_FADE_DURATION  = 600;
 
     const T_PULSE1  = 400;
     const T_PULSE2  = 700;
-    const T_EXPAND  = 3200;
+    const T_EXPAND  = 1900;
     const T_MID     = (T_PULSE2 + T_EXPAND) / 2;
-    const T_FADEOUT = 3800;
+    const T_FADEOUT = 2500;
 
     setTimeout(() => {
       gridHost.style.transition = `opacity ${GRID_FADE_DURATION}ms ease`;
