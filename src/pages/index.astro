@@ -102,7 +102,12 @@ import Footer from '../components/Footer.astro';
     transform-origin: bottom center;
     opacity: 0;
     transform: rotateX(76deg) scale(1);
+    will-change: transform, opacity;
+    backface-visibility: hidden;
   }
+
+  #gi-intro-layer, #gi-headset-rim, #gi-grid-host { will-change: opacity; }
+  #gi-hole, #gi-headset-front { will-change: transform; }
 
   .gi-grid-plane.is-animating {
     animation: giGridReveal 2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
