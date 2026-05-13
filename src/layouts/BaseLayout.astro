@@ -22,7 +22,7 @@ const {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="color-schema" content "dark" />
+    <meta name="color-scheme" content="dark" />
     <meta name="description" content={description} />
     <title>{title}</title>
     <link rel="apple-touch-icon" sizes="180x180" href={`${import.meta.env.BASE_URL}/apple-touch-icon.png`.replace(/\/+/g, '/')}>
@@ -64,7 +64,8 @@ const {
         // ── Main page (gray theme) patches ──────────────────────────────────
         // Remove the intro overlay before paint so there's no dark flash
         newDoc.getElementById('gi-intro-layer')?.remove();
-        newDoc.getElementById('gi-defs')?.remove();
+        newDoc.getElementById('gi-grid-host')?.remove();
+        newDoc.getElementById('gi-headset-rim')?.remove();
         // Ensure hero content is visible immediately
         newDoc.querySelectorAll<HTMLElement>('.hero-content').forEach(el => {
           el.style.opacity = '1';
